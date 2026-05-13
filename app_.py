@@ -6,19 +6,19 @@ from openai import OpenAI
 # Завантаження змінних з файлу .env в оточення ОС
 load_dotenv()
 
-st.title("🤖 Стрімліт + OpenRouter через .env")
+st.title("Streamlit")
 
-user_prompt = st.text_input("Ваше запитання до ШІ:", "Привіт! Напиши один рядок коду на Python.")
+user_prompt = st.text_input("La tua domanda:", "Ciao! Quale fiume è piu lungo in Italia.")
 
-if st.button("Надіслати запит"):
-    with st.spinner("З'єднання з сервером..."):
+if st.button("Send"):
+    with st.spinner("Collegamento..."):
         try:
             # Зчитування ключа з системних змінних, куди його завантажив dotenv
             api_key = os.getenv("OPENROUTER_API_KEY")
             
             # Перевірка наявності ключа перед відправкою
             if not api_key:
-                st.error("Помилка: Ключ OPENROUTER_API_KEY не знайдено у файлі .env")
+                st.error("Errore")
                 st.stop()
 
             # Ініціалізація клієнта
